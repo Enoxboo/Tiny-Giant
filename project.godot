@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Tiny-Giant"
+run/main_scene="res://Levels/test_scene.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=568
+window/size/viewport_height=320
+window/size/window_width_override=1136
+window/size/window_height_override=640
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[file_customization]
+
+folder_colors={
+"res://Levels/": "green"
+}
+
+[layer_names]
+
+2d_physics/layer_1="GROUND"
+2d_physics/layer_2="PLAYER_COLLISION"
+2d_physics/layer_3="PLAYER_HURTBOX"
+2d_physics/layer_4="PLAYER_HITBOX"
+2d_physics/layer_5="ENEMY_COLLISION"
+2d_physics/layer_6="ENEMY_HURTBOX"
+2d_physics/layer_7="ENEMY_HITBOX"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
