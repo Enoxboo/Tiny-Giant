@@ -27,6 +27,7 @@ window/stretch/scale_mode="integer"
 [file_customization]
 
 folder_colors={
+"res://Enemies/": "red",
 "res://Levels/": "green",
 "res://Player/": "purple",
 "res://Utils/": "yellow"
