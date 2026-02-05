@@ -7,6 +7,7 @@ signal scale_changed(new_scale_modifier: float)
 
 @export var data: PlayerData
 
+@onready var current_hp: int = data.max_hp
 var scale_modifier: float = 1.0
 
 

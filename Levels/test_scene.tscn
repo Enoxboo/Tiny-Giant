@@ -44,7 +44,7 @@ tile_set = SubResource("TileSet_dc6q1")
 position = Vector2(-103, 30)
 
 [node name="BaseEnemy" parent="." unique_id=1617725072 node_paths=PackedStringArray("patrol_points") instance=ExtResource("3_dc6q1")]
-position = Vector2(78, 48)
+position = Vector2(79, 73)
 data = ExtResource("4_q5m1e")
 patrol_points = {
 0: NodePath("../PatrolPoints/PatrolPoint1"),
@@ -54,7 +54,7 @@ patrol_points = {
 [node name="PatrolPoints" type="Node" parent="." unique_id=617713159]
 
 [node name="PatrolPoint1" type="Node2D" parent="PatrolPoints" unique_id=489524715]
-position = Vector2(-69, 47)
+position = Vector2(-64, 74)
 
 [node name="PatrolPoint2" type="Node2D" parent="PatrolPoints" unique_id=1295581321]
-position = Vector2(127, 47)
+position = Vector2(101, 74)

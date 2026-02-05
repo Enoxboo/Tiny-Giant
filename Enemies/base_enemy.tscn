@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0wlltfevtkid" path="res://Enemies/base_enemy.gd" id="1_hjege"]
 [ext_resource type="Script" uid="uid://cusypqnd3eojm" path="res://Utils/StateMachine/state_machine.gd" id="2_5ailr"]
+[ext_resource type="Script" uid="uid://cy1syeid3alyq" path="res://Utils/hitbox.gd" id="2_dq6ge"]
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1617725072]
 collision_layer = 16
@@ -19,10 +20,13 @@ collision_mask = 0
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=184837172]
 collision_layer = 64
-collision_mask = 8
+collision_mask = 4
+script = ExtResource("2_dq6ge")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox" unique_id=1290357298]
 
 [node name="StateMachine" type="Node" parent="." unique_id=1652074701]
 script = ExtResource("2_5ailr")
 metadata/_custom_type_script = "uid://cusypqnd3eojm"
+
+[connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

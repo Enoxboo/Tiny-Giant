@@ -33,6 +33,10 @@ folder_colors={
 "res://Utils/": "yellow"
 }
 
+[global_group]
+
+Player=""
+
 [input]
 
 move_left={

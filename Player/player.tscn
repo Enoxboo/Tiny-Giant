@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://btj743n51278u"]
 
 [ext_resource type="Script" uid="uid://fllli3hwtvim" path="res://Player/player.gd" id="1_4ntmi"]
-[ext_resource type="Texture2D" uid="uid://bqcs63qhubx4n" path="res://Player/Assets/player.png" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://jh6uiq1vgrvd" path="res://Player/Assets/player.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://rjllphomdbpe" path="res://Player/player_data.gd" id="2_btcbx"]
+[ext_resource type="Script" uid="uid://de5250topj4e7" path="res://Utils/hurtbox.gd" id="4_00tjw"]
 [ext_resource type="Script" uid="uid://cusypqnd3eojm" path="res://Utils/StateMachine/state_machine.gd" id="4_od3ui"]
 [ext_resource type="Script" uid="uid://colm3gvmu3ggw" path="res://Player/States/idle.gd" id="5_00tjw"]
 [ext_resource type="Script" uid="uid://cc81cq780sg51" path="res://Player/States/running.gd" id="6_x3vf3"]
@@ -19,10 +20,7 @@ size = Vector2(8, 8.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
 size = Vector2(7, 7.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnis"]
-size = Vector2(10, 2)
-
-[node name="Player" type="CharacterBody2D" unique_id=1786735294]
+[node name="Player" type="CharacterBody2D" unique_id=1786735294 groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_4ntmi")
 data = SubResource("Resource_gwnis")
@@ -32,25 +30,19 @@ scale = Vector2(0.25, 0.265625)
 texture = ExtResource("1_l8h54")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1460648914]
+visible = false
 shape = SubResource("RectangleShape2D_4ntmi")
 debug_color = Color(0.28235295, 0.7921569, 0.89411765, 0.29411766)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1436238797]
+visible = false
 collision_layer = 4
 collision_mask = 0
+script = ExtResource("4_00tjw")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1431796727]
 shape = SubResource("RectangleShape2D_btcbx")
 debug_color = Color(1, 0.85490197, 0.011764706, 0.29411766)
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=391634526]
-collision_layer = 8
-collision_mask = 32
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox" unique_id=26651132]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_gwnis")
-debug_color = Color(1, 0.17254902, 0.17254902, 0.29411766)
 
 [node name="StateMachine" type="Node" parent="." unique_id=2140451775]
 script = ExtResource("4_od3ui")
