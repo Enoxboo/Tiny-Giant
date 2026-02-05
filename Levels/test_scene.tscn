@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ijukku54ninc" path="res://Levels/Assets/test-tiles.png" id="1_abhxl"]
 [ext_resource type="PackedScene" uid="uid://btj743n51278u" path="res://Player/player.tscn" id="2_g54tn"]
+[ext_resource type="PackedScene" uid="uid://bpam6x8fxgbcv" path="res://Enemies/patroler.tscn" id="3_dc6q1"]
+[ext_resource type="Resource" uid="uid://bryomk3u7n7oi" path="res://Enemies/patroler_data.tres" id="4_q5m1e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g54tn"]
 texture = ExtResource("1_abhxl")
@@ -40,3 +42,19 @@ tile_set = SubResource("TileSet_dc6q1")
 
 [node name="Player" parent="." unique_id=1786735294 instance=ExtResource("2_g54tn")]
 position = Vector2(-103, 30)
+
+[node name="BaseEnemy" parent="." unique_id=1617725072 node_paths=PackedStringArray("patrol_points") instance=ExtResource("3_dc6q1")]
+position = Vector2(78, 48)
+data = ExtResource("4_q5m1e")
+patrol_points = {
+0: NodePath("../PatrolPoints/PatrolPoint1"),
+1: NodePath("../PatrolPoints/PatrolPoint2")
+}
+
+[node name="PatrolPoints" type="Node" parent="." unique_id=617713159]
+
+[node name="PatrolPoint1" type="Node2D" parent="PatrolPoints" unique_id=489524715]
+position = Vector2(-69, 47)
+
+[node name="PatrolPoint2" type="Node2D" parent="PatrolPoints" unique_id=1295581321]
+position = Vector2(127, 47)
