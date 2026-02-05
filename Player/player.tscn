@@ -71,3 +71,5 @@ metadata/_custom_type_script = "uid://bjnym1b04ldr6"
 [node name="Falling" type="Node" parent="StateMachine" unique_id=471194529]
 script = ExtResource("8_5htga")
 metadata/_custom_type_script = "uid://bjnym1b04ldr6"
+
+[connection signal="scale_changed" from="." to="." method="_on_scale_changed"]
