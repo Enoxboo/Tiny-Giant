@@ -21,11 +21,11 @@ func _input(event: InputEvent) -> void:
 	if is_dead:
 		return
 	
-	if event.is_action_pressed("enlarge") and scale_modifier < 2.0:
-		scale_modifier += 0.2
+	if event.is_action_pressed("scale_up") and scale_modifier < 2.0:
+		scale_modifier += 0.25
 		scale_changed.emit(scale_modifier)
-	elif event.is_action_pressed("shrink") and scale_modifier > 0.2:
-		scale_modifier -= 0.2
+	elif event.is_action_pressed("scale_down") and scale_modifier > 0.25:
+		scale_modifier -= 0.25
 		scale_changed.emit(scale_modifier)
 
 
