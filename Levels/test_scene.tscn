@@ -58,3 +58,6 @@ position = Vector2(-64, 74)
 
 [node name="PatrolPoint2" type="Node2D" parent="PatrolPoints" unique_id=1295581321]
 position = Vector2(101, 74)
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=649430208 groups=["SpawnPoint"]]
+position = Vector2(-177, 66)

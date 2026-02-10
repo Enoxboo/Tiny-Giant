@@ -13,6 +13,10 @@ func physics_update(delta: float) -> void:
 
 
 func _check_exits() -> void:
+	if player.is_dead:
+		finished.emit(DEAD)
+		return
+	
 	if not player.is_on_floor():
 		finished.emit(FALLING)
 		return

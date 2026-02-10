@@ -9,16 +9,17 @@
 [ext_resource type="Script" uid="uid://cc81cq780sg51" path="res://Player/States/running.gd" id="6_x3vf3"]
 [ext_resource type="Script" uid="uid://b3607dxwomohu" path="res://Player/States/jumping.gd" id="7_apopc"]
 [ext_resource type="Script" uid="uid://c45f5nnnyma8q" path="res://Player/States/falling.gd" id="8_5htga"]
+[ext_resource type="Script" uid="uid://cnbx8rjl2n5u8" path="res://Player/States/dead.gd" id="10_x3vf3"]
 
 [sub_resource type="Resource" id="Resource_gwnis"]
 script = ExtResource("2_btcbx")
 metadata/_custom_type_script = "uid://rjllphomdbpe"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(8, 8.5)
+size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
-size = Vector2(7, 7.5)
+size = Vector2(6, 6)
 
 [node name="Player" type="CharacterBody2D" unique_id=1786735294 groups=["Player"]]
 collision_layer = 2
@@ -26,16 +27,13 @@ script = ExtResource("1_4ntmi")
 data = SubResource("Resource_gwnis")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=543706585]
-scale = Vector2(0.25, 0.265625)
 texture = ExtResource("1_l8h54")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1460648914]
-visible = false
 shape = SubResource("RectangleShape2D_4ntmi")
 debug_color = Color(0.28235295, 0.7921569, 0.89411765, 0.29411766)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1436238797]
-visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_00tjw")
@@ -62,6 +60,10 @@ metadata/_custom_type_script = "uid://bjnym1b04ldr6"
 
 [node name="Falling" type="Node" parent="StateMachine" unique_id=471194529]
 script = ExtResource("8_5htga")
+metadata/_custom_type_script = "uid://bjnym1b04ldr6"
+
+[node name="Dead" type="Node" parent="StateMachine" unique_id=1435632089]
+script = ExtResource("10_x3vf3")
 metadata/_custom_type_script = "uid://bjnym1b04ldr6"
 
 [connection signal="scale_changed" from="." to="." method="_on_scale_changed"]
