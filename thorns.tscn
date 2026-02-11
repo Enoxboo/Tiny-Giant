@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://2uctfmj50iec"]
+
+[ext_resource type="Script" uid="uid://cy1syeid3alyq" path="res://Utils/hitbox.gd" id="1_8dbvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys32k"]
+size = Vector2(34, 6)
+
+[node name="Thorns" type="Area2D" unique_id=1849052781]
+collision_layer = 64
+collision_mask = 4
+script = ExtResource("1_8dbvq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=985870007]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1475357722]
+shape = SubResource("RectangleShape2D_ys32k")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://btj743n51278u" path="res://Player/player.tscn" id="2_g54tn"]
 [ext_resource type="PackedScene" uid="uid://bpam6x8fxgbcv" path="res://Enemies/patroler.tscn" id="3_dc6q1"]
 [ext_resource type="Resource" uid="uid://bryomk3u7n7oi" path="res://Enemies/patroler_data.tres" id="4_q5m1e"]
+[ext_resource type="PackedScene" uid="uid://2uctfmj50iec" path="res://thorns.tscn" id="5_d6kn1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g54tn"]
 texture = ExtResource("1_abhxl")
@@ -61,3 +62,6 @@ position = Vector2(101, 74)
 
 [node name="SpawnPoint" type="Node2D" parent="." unique_id=649430208 groups=["SpawnPoint"]]
 position = Vector2(-177, 66)
+
+[node name="Thorns" parent="." unique_id=1849052781 instance=ExtResource("5_d6kn1")]
+position = Vector2(-143, 76)
