@@ -1,10 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
-signal scale_changed(new_scale_modifier: float)
+signal scale_changed(step: float)
+
+const SCALE_STEP: float = 0.25
+const MAX_SCALE: float = 2.0
+const MIN_SCALE: float = 0.25
 
 @onready var sprite: Sprite2D = $Sprite
-@onready var collision: CollisionShape2D = $Collision
 @onready var spawn_point: Node2D = get_tree().get_first_node_in_group("SpawnPoint")
 
 @export var data: PlayerData
@@ -21,18 +24,16 @@ func _input(event: InputEvent) -> void:
 	if is_dead:
 		return
 	
-	if event.is_action_pressed("scale_up") and scale_modifier < 2.0:
-		scale_modifier += 0.25
-		scale_changed.emit(scale_modifier)
-	elif event.is_action_pressed("scale_down") and scale_modifier > 0.25:
-		scale_modifier -= 0.25
-		scale_changed.emit(scale_modifier)
+	if event.is_action_pressed("scale_up") and scale_modifier < MAX_SCALE:
+		scale_changed.emit(SCALE_STEP)
+	elif event.is_action_pressed("scale_down") and scale_modifier > MIN_SCALE:
+		scale_changed.emit(-SCALE_STEP)
 
 
 func spawn() -> void:
 	is_dead = false
 	scale_modifier = 1.0
-	scale_changed.emit(scale_modifier)
+	scale_changed.emit(0)
 
 	var tween = create_tween()
 	tween.set_parallel()
@@ -43,6 +44,5 @@ func spawn() -> void:
 	global_position = spawn_point.global_position
 
 
-
-func _on_scale_changed(new_scale_modifier: float) -> void:
-	self.scale = Vector2(new_scale_modifier, new_scale_modifier)
+func _on_scale_changed(step: float) -> void:
+	ScalingUtils.change_scale(step, self)
